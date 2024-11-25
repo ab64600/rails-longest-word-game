@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h1 class="text-center">Résultat de la partie</h1>
+
+  <div class="alert
+              <%= 'alert-success' if @result.include?('Congratulations!') %>
+              <%= 'alert-danger' if @result.include?("can't be built") %>
+              <%= 'alert-warning' if @result.include?("doesn't seem") %>
+              text-center" role="alert">
+    <strong><%= @result %></strong>
+  </div>
+
+  <div class="text-center mt-4">
+    <h3>Votre score actuel : <%= session[:score] || 0 %></h3>
+  </div>
+
+  <div class="text-center mt-4">
+    <%= link_to 'Rejouer', '/new', class: 'btn btn-primary' %>
+  </div>
+</div>
